@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Desafíos Bebras 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --neutral: #8d99ae;
+            --heading-font: "Orbitron", sans-serif;
+            --body-font: "Roboto", sans-serif;
+            --card-radius: 8px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234a6fa5' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: var(--light);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        .timer-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+        }
+
+        .timer-warning {
+            color: #ff6b6b;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-family: var(--heading-font);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .tab.active {
+            background: rgba(78, 205, 196, 0.3);
+        }
+
+        .tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .challenges-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .challenge-card {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform var(--transition-speed);
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .challenge-number {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .challenge-title {
+            font-family: var(--heading-font);
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .challenge-image {
+            width: 100%;
+            border-radius: var(--card-radius);
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .challenge-description {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .skills-selection {
+            margin: 15px 0;
+        }
+
+        .skills-selection h4 {
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-family: var(--heading-font);
+        }
+
+        .skill-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .skill-option {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--card-radius);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-align: center;
+        }
+
+        .skill-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-option.selected {
+            background: rgba(78, 205, 196, 0.3);
+            border-color: var(--accent);
+        }
+
+        .answer-section {
+            margin: 15px 0;
+        }
+
+        .answer-section h4 {
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-family: var(--heading-font);
+        }
+
+        .answer-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .answer-option {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--card-radius);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .answer-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .answer-option.selected {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: rgba(76, 175, 80, 0.5);
+        }
+
+        .feedback {
+            padding: 10px;
+            border-radius: var(--card-radius);
+            margin-top: 10px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .feedback.correct {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.4);
+            color: #a5d6a7;
+        }
+
+        .feedback.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid rgba(244, 67, 54, 0.4);
+            color: #ef9a9a;
+        }
+
+        .exit-ticket {
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            border-radius: var(--card-radius);
+            padding: 15px;
+            margin-top: 15px;
+            display: none;
+            text-align: center;
+            font-family: var(--heading-font);
+        }
+
+        .progress-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: rgba(78, 205, 196, 0.7);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-family: var(--heading-font);
+            margin-top: 10px;
+        }
+
+        .evaluation-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .evaluation-section h2 {
+            font-family: var(--heading-font);
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .evaluation-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--card-radius);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: var(--body-font);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+            padding: 12px 24px;
+            background: rgba(78, 205, 196, 0.3);
+            border: 1px solid var(--accent);
+            border-radius: var(--card-radius);
+            color: white;
+            font-family: var(--heading-font);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background: rgba(78, 205, 196, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .medals-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .medals-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .medal {
+            text-align: center;
+            margin: 10px;
+            opacity: 0.3;
+            transition: all var(--transition-speed);
+        }
+
+        .medal.earned {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .medal i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .medal.bronze i {
+            color: #cd7f32;
+        }
+
+        .medal.silver i {
+            color: #c0c0c0;
+        }
+
+        .medal.gold i {
+            color: #ffd700;
+        }
+
+        .medal.platinum i {
+            color: #e5e4e2;
+        }
+
+        .performance-report {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .report-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--card-radius);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .report-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-family: var(--heading-font);
+        }
+
+        .tickets-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .tickets-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ticket-card {
+            background: rgba(138, 43, 226, 0.2);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            border-radius: var(--card-radius);
+            padding: 15px;
+            text-align: center;
+            font-family: var(--heading-font);
+        }
+
+        .ticket-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .rubric-section {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .rubric-table th, .rubric-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .rubric-table th {
+            background: rgba(78, 205, 196, 0.3);
+            font-family: var(--heading-font);
+        }
+
+        .rubric-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .criteria-level {
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .visual-container {
+            background: white;
+            border-radius: var(--card-radius);
+            padding: 15px;
+            margin: 15px 0;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .visual-item {
+            background: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: var(--card-radius);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .challenges-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-options, .answer-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .evaluation-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .rubric-table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-brain"></i> Escape Room - Desafíos Bebras 2025</h1>
+            <p class="subtitle">Liceo Cuna de Fabini - Solís de Mataojo - 8° EBI</p>
+        </header>
+
+        <div class="timer-section">
+            <div id="timer">35:00</div>
+            <div id="timer-message" style="display:none; margin-top:10px;" class="timer-warning">
+                <i class="fas fa-exclamation-triangle"></i> ¡Tiempo extra! Puedes continuar con los desafíos extras
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="main-challenges">Desafíos Principales (35 min)</button>
+            <button class="tab" data-tab="extra-challenges">Desafíos Extras (+Puntos)</button>
+            <button class="tab" data-tab="evaluation">Evaluación</button>
+            <button class="tab" data-tab="performance">Desempeño</button>
+        </div>
+
+        <div class="tab-content active" id="main-challenges">
+            <div class="progress-section">
+                <h3>Progreso Desafíos Principales</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0/14 desafíos completados</div>
+            </div>
+
+            <div class="challenges-container" id="challenges-container">
+                <!-- Los desafíos principales se cargarán aquí -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="extra-challenges">
+            <div class="progress-section">
+                <h3>Desafíos Extras - Puntos Adicionales</h3>
+                <p>Completa estos desafíos para ganar puntos extra después de terminar los principales</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="extra-progress-fill" style="width:0%"></div>
+                </div>
+                <div class="progress-text" id="extra-progress-text">0/10 desafíos extras completados</div>
+            </div>
+
+            <div class="challenges-container" id="extra-challenges-container">
+                <!-- Los desafíos extras se cargarán aquí -->
+            </div>
+        </div>
+
+        <div class="tab-content" id="evaluation">
+            <div class="evaluation-section">
+                <h2><i class="fas fa-clipboard-check"></i> Evaluación de Conceptos</h2>
+                <form class="evaluation-form" id="evaluation-form">
+                    <div class="form-group">
+                        <label for="student-name">Nombre del estudiante:</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-team">Equipo:</label>
+                        <input type="text" id="student-team" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-grade">Grado:</label>
+                        <select id="student-grade" required>
+                            <option value="">Selecciona tu grado</option>
+                            <option value="8">8° EBI</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="difficulty-rating">¿Qué tan desafiantes encontraste estos ejercicios?</label>
+                        <select id="difficulty-rating" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="1">Muy fáciles</option>
+                            <option value="2">Fáciles</option>
+                            <option value="3">Moderados</option>
+                            <option value="4">Difíciles</option>
+                            <option value="5">Muy difíciles</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enjoyment-rating">¿Qué tan disfrutables fueron los desafíos?</label>
+                        <select id="enjoyment-rating" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="1">No me gustaron</option>
+                            <option value="2">Poco disfrutables</option>
+                            <option value="3">Neutral</option>
+                            <option value="4">Disfrutables</option>
+                            <option value="5">Muy disfrutables</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills-improved">¿Qué habilidades de pensamiento computacional crees que desarrollaste?</label>
+                        <textarea id="skills-improved" placeholder="Describe las habilidades que desarrollaste..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="challenges-faced">¿Qué desafíos encontraste más difíciles y por qué?</label>
+                        <textarea id="challenges-faced" placeholder="Describe los desafíos que te resultaron más difíciles..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-feedback">Comentarios para el profesor:</label>
+                        <textarea id="teacher-feedback" placeholder="Comparte tus comentarios, sugerencias o dudas..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Evaluación</button>
+                </form>
+            </div>
+
+            <div class="evaluation-section">
+                <h2><i class="fas fa-user-check"></i> Autoevaluación del Desempeño</h2>
+                <form class="evaluation-form" id="self-evaluation-form">
+                    <div class="form-group">
+                        <label for="team-performance">¿Cómo calificarías el desempeño de tu equipo?</label>
+                        <select id="team-performance" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="1">Excelente - Trabajamos muy bien juntos</option>
+                            <option value="2">Bueno - Hubo buena colaboración</option>
+                            <option value="3">Regular - Podríamos haber trabajado mejor</option>
+                            <option value="4">Deficiente - Fue difícil trabajar en equipo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="my-contribution">¿Cuál crees que fue tu principal contribución al equipo?</label>
+                        <textarea id="my-contribution" placeholder="Describe tu contribución al trabajo en equipo..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="learned-content">¿Qué contenido aprendiste durante esta actividad?</label>
+                        <textarea id="learned-content" placeholder="Describe lo que aprendiste..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="difficult-concepts">¿Qué conceptos te resultaron más difíciles de entender?</label>
+                        <textarea id="difficult-concepts" placeholder="Describe los conceptos que no entendiste completamente..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="improvement-areas">¿En qué áreas crees que necesitas mejorar?</label>
+                        <textarea id="improvement-areas" placeholder="Describe las áreas donde necesitas mejorar..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enjoyed-most">¿Qué fue lo que más disfrutaste de esta actividad?</label>
+                        <textarea id="enjoyed-most" placeholder="Describe lo que más te gustó..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Enviar Autoevaluación</button>
+                </form>
+            </div>
+
+            <div class="rubric-section">
+                <h2><i class="fas fa-list-check"></i> Rúbrica de Evaluación</h2>
+                <table class="rubric-table">
+                    <thead>
+                        <tr>
+                            <th>Criterio</th>
+                            <th>Excelente (4 pts)</th>
+                            <th>Bueno (3 pts)</th>
+                            <th>Regular (2 pts)</th>
+                            <th>Necesita Mejora (1 pt)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="criteria-level">Resolución de Problemas</td>
+                            <td>Resuelve todos los desafíos correctamente, aplicando estrategias eficientes</td>
+                            <td>Resuelve la mayoría de desafíos correctamente con algunas estrategias adecuadas</td>
+                            <td>Resuelve algunos desafíos pero con dificultad para aplicar estrategias</td>
+                            <td>No logra resolver la mayoría de desafíos o lo hace incorrectamente</td>
+                        </tr>
+                        <tr>
+                            <td class="criteria-level">Pensamiento Computacional</td>
+                            <td>Identifica correctamente las habilidades de PC en todos los desafíos y las aplica consistentemente</td>
+                            <td>Identifica correctamente la mayoría de habilidades de PC y las aplica en la mayoría de casos</td>
+                            <td>Identifica algunas habilidades de PC pero con dificultad para aplicarlas</td>
+                            <td>No identifica las habilidades de PC o las aplica incorrectamente</td>
+                        </tr>
+                        <tr>
+                            <td class="criteria-level">Trabajo en Equipo</td>
+                            <td>Colabora activamente, escucha a los compañeros y contribuye significativamente al equipo</td>
+                            <td>Colabora adecuadamente y contribuye al trabajo del equipo</td>
+                            <td>Participa ocasionalmente pero con contribuciones limitadas</td>
+                            <td>No colabora o dificulta el trabajo del equipo</td>
+                        </tr>
+                        <tr>
+                            <td class="criteria-level">Manejo del Tiempo</td>
+                            <td>Completa todos los desafíos en el tiempo asignado y utiliza tiempo extra eficientemente</td>
+                            <td>Completa la mayoría de desafíos en el tiempo asignado</td>
+                            <td>Completa algunos desafíos pero requiere mucho tiempo adicional</td>
+                            <td>No completa los desafíos en el tiempo asignado</td>
+                        </tr>
+                        <tr>
+                            <td class="criteria-level">Reflexión y Autoevaluación</td>
+                            <td>Reflexiona profundamente sobre su aprendizaje y identifica áreas de mejora específicas</td>
+                            <td>Reflexiona adecuadamente sobre su aprendizaje y reconoce algunas áreas de mejora</td>
+                            <td>Proporciona reflexiones básicas sin mucho detalle</td>
+                            <td>No reflexiona sobre su aprendizaje o lo hace de manera superficial</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 20px; text-align: center;">
+                    <p><strong>Puntuación Total:</strong> <span id="rubric-total">0</span>/20 puntos</p>
+                    <p><strong>Calificación:</strong> <span id="rubric-grade">-</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="performance">
+            <div class="performance-report">
+                <h2><i class="fas fa-chart-line"></i> Informe de Desempeño</h2>
+                <div class="report-grid">
+                    <div class="report-card">
+                        <h4>Desafíos Completados</h4>
+                        <div id="completed-challenges">0/24</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Puntuación Total</h4>
+                        <div id="total-score">0 puntos</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Tiempo Utilizado</h4>
+                        <div id="time-used">0:00</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Eficiencia</h4>
+                        <div id="efficiency">0%</div>
+                    </div>
+                </div>
+                
+                <div class="skills-report" style="margin-top: 30px;">
+                    <h3>Habilidades Desarrolladas</h3>
+                    <div class="report-grid">
+                        <div class="report-card">
+                            <h4>Abstracción</h4>
+                            <div id="abstraction-score">0%</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Pensamiento Algorítmico</h4>
+                            <div id="algorithmic-score">0%</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Descomposición</h4>
+                            <div id="decomposition-score">0%</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Evaluación</h4>
+                            <div id="evaluation-score">0%</div>
+                        </div>
+                        <div class="report-card">
+                            <h4>Generalización</h4>
+                            <div id="generalization-score">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tickets-section">
+                <h2><i class="fas fa-ticket-alt"></i> Tickets de Salida Obtenidos</h2>
+                <div class="tickets-container" id="tickets-container">
+                    <!-- Los tickets de salida se cargarán aquí dinámicamente -->
+                    <div class="ticket-card">
+                        <h4>No hay tickets aún</h4>
+                        <p>Completa desafíos para obtener tickets de salida</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medals-section">
+                <h2><i class="fas fa-medal"></i> Medallas Obtenidas</h2>
+                <div class="medals-container">
+                    <div class="medal bronze" id="medal-bronze">
+                        <i class="fas fa-medal"></i>
+                        <p>Bronce</p>
+                        <p>Completa 5 desafíos</p>
+                    </div>
+                    <div class="medal silver" id="medal-silver">
+                        <i class="fas fa-medal"></i>
+                        <p>Plata</p>
+                        <p>Completa 10 desafíos</p>
+                    </div>
+                    <div class="medal gold" id="medal-gold">
+                        <i class="fas fa-medal"></i>
+                        <p>Oro</p>
+                        <p>Completa todos los desafíos</p>
+                    </div>
+                    <div class="medal platinum" id="medal-platinum">
+                        <i class="fas fa-gem"></i>
+                        <p>Platino</p>
+                        <p>Completa desafíos extras</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Escape Room - Desafíos Bebras 2025 - Liceo Cuna de Fabini, Solís de Mataojo</p>
+            <p>Desarrollado para fomentar habilidades de pensamiento computacional en 8° EBI</p>
+        </footer>
+    </div>
+
+    <script>
+        // Datos de los desafíos Bebras 2025
+        const challenges = [
+            {
+                id: 1,
+                title: "Regalo de Cumpleaños",
+                description: "Ema quiere una pelota para su cumpleaños. Ella quiere que la pelota: no tenga rayas, tenga una estrella, no tenga una luna.",
+                image: "1.png",
+                answerOptions: ["Pelota A", "Pelota B", "Pelota C", "Pelota D", "Pelota E", "Pelota F"],
+                correctAnswer: 4, // Pelota E
+                correctSkill: "abstraccion",
+                exitTicket: "IDENTIFICAR PATRONES VISUALES"
+            },
+            {
+                id: 2,
+                title: "Tréboles Giratorios",
+                description: "Eliseo dejó caer su trébol favorito al suelo, y ahora está mezclado con otros. Además, podría estar dado vuelta (boca abajo).",
+                image: "2.png",
+                answerOptions: ["Trébol A", "Trébol B", "Trébol C", "Trébol D"],
+                correctAnswer: 3, // Trébol D
+                correctSkill: "abstraccion",
+                exitTicket: "RECONOCER CARACTERÍSTICAS ÚNICAS"
+            },
+            {
+                id: 3,
+                title: "Dibujando un Velero",
+                description: "Sofía quiere volver a trazar las líneas de su dibujo de velero siguiendo estas reglas: no puede levantar el lápiz del papel, no puede pasar dos veces por la misma línea.",
+                image: "3.png",
+                answerOptions: ["Punto A y C", "Punto B solamente", "Punto D y E", "Todos los puntos"],
+                correctAnswer: 0, // Punto A y C
+                correctSkill: "algoritmico",
+                exitTicket: "TRAZAR RUTAS EFICIENTES"
+            },
+            {
+                id: 4,
+                title: "Ruidos en el Tráfico",
+                description: "Los autos atraviesan el pueblo para ir de A a B. Algunos vecinos están molestos por el ruido y se quejan: 'Cada auto que pasa por nuestro pueblo pasa por mi casa'.",
+                image: "4.png",
+                answerOptions: ["2 casas", "3 casas", "4 casas", "5 casas"],
+                correctAnswer: 1, // 3 casas
+                correctSkill: "evaluacion",
+                exitTicket: "ANALIZAR RUTAS CRÍTICAS"
+            },
+            {
+                id: 5,
+                title: "Árboles",
+                description: "Los castores del pueblo solo pueden plantar árboles en lugares específicos. Cada pastor puede plantar un solo árbol por día, y en cada lugar solo se puede plantar un árbol como máximo.",
+                image: "5.png",
+                answerOptions: ["5 árboles", "6 árboles", "7 árboles", "8 árboles"],
+                correctAnswer: 2, // 7 árboles
+                correctSkill: "evaluacion",
+                exitTicket: "OPTIMIZAR RECURSOS LIMITADOS"
+            },
+            {
+                id: 6,
+                title: "Transportador de Juguetes",
+                description: "Un transportador de juguetes gira constantemente. Martín comienza el juego recogiendo el auto a cuerda. ¿Qué juguete recogerá por último?",
+                image: "6.png",
+                answerOptions: ["Oso de peluche", "Puzzle", "Balde", "Pala"],
+                correctAnswer: 0, // Oso de peluche
+                correctSkill: "algoritmico",
+                exitTicket: "SECUENCIAR PROCESOS"
+            },
+            {
+                id: 7,
+                title: "Sonajero de Oliva",
+                description: "Olivia tiene un sonajero transparente con pelotitas de colores adentro. Cuando lo agita, algunas pelotitas se mueven y pasan de un lado al otro.",
+                image: "7.png",
+                answerOptions: ["Imagen A", "Imagen B", "Imagen C", "Imagen D"],
+                correctAnswer: 2, // Imagen C
+                correctSkill: "algoritmico",
+                exitTicket: "PREDECIR MOVIMIENTOS"
+            },
+            {
+                id: 8,
+                title: "Abrir el Paquete",
+                description: "El pequeño castor Teo recibió un paquete de regalo envuelto en un papel que estaba doblado en cinco partes. ¿Cómo se verá el papel de regalo cuando Teo lo abra?",
+                image: "8.png",
+                answerOptions: ["Opción A", "Opción B", "Opción C", "Opción D"],
+                correctAnswer: 1, // Opción B
+                correctSkill: "abstraccion",
+                exitTicket: "VISUALIZAR TRANSFORMACIONES"
+            },
+            {
+                id: 9,
+                title: "Punto de Encuentro",
+                description: "Los castores quieren reunirse en un árbol de forma tal que la distancia más larga que tenga que recorrer cualquier pastor desde su cabaña hasta ese árbol sea lo más corta posible.",
+                image: "9.png",
+                answerOptions: ["Árbol A", "Árbol B", "Árbol C", "Árbol D"],
+                correctAnswer: 2, // Árbol C
+                correctSkill: "evaluacion",
+                exitTicket: "MINIMIZAR DISTANCIAS MÁXIMAS"
+            },
+            {
+                id: 10,
+                title: "Caramelos",
+                description: "Gabi tiene 9 caramelos y quiere regalarles a sus amigas. ¿En qué orden debería Gabi repartir los caramelos con sus amigas para quedarse con la mayor cantidad posible?",
+                image: "10.png",
+                answerOptions: ["Ana, Lía, María", "María, Lía, Ana", "Lía, Ana, María", "María, Ana, Lía"],
+                correctAnswer: 3, // María, Ana, Lía
+                correctSkill: "evaluacion",
+                exitTicket: "OPTIMIZAR SECUENCIAS"
+            },
+            {
+                id: 11,
+                title: "Pulsera con un Mensaje",
+                description: "Al usar como punto, como raya y como separador, usando de guía la tabla de código morse puedes crear una pulsera. ¿Cuál de las siguientes pulseras contiene el mensaje 'HOUA'?",
+                image: "11.png",
+                answerOptions: ["Pulsera A", "Pulsera B", "Pulsera C", "Pulsera D"],
+                correctAnswer: 0, // Pulsera A
+                correctSkill: "generalizacion",
+                exitTicket: "DECODIFICAR PATRONES"
+            },
+            {
+                id: 12,
+                title: "Fiesta de Disfraces",
+                description: "Bruno organiza una fiesta de disfraces y quiere asegurarse de que cada amigo/a tenga un disfraz único. ¿Qué disfraces debería asignar Bruno a cada amigo para que todos tengan un disfraz?",
+                image: "12.png",
+                answerOptions: ["Laura: Mago, Diego: Pirata, María: Dinosaurio, Pablo: Astronauta, Sofía: Superhéroe", 
+                               "Laura: Dinosaurio, Diego: Superhéroe, María: Dinosaurio, Pablo: Astronauta, Sofía: Pirata",
+                               "Laura: Mago, Diego: Superhéroe, María: Dinosaurio, Pablo: Astronauta, Sofía: Pirata",
+                               "Laura: Dinosaurio, Diego: Pirata, María: Superhéroe, Pablo: Astronauta, Sofía: Pirata"],
+                correctAnswer: 2, // Laura: Mago, Diego: Superhéroe, María: Dinosaurio, Pablo: Astronauta, Sofía: Pirata
+                correctSkill: "evaluacion",
+                exitTicket: "ASIGNAR RECURSOS ÚNICOS"
+            },
+            {
+                id: 13,
+                title: "¿Qué Pintó el Pintor?",
+                description: "Un pintor eligió una de las frutas para pintar. Para saber qué fruta eligió el pintor le puedes hacer preguntas que serán respondidas con 'sí' o 'no'. ¿Con cuál de las siguientes preguntas deberías empezar?",
+                image: "13.png",
+                answerOptions: ["¿La fruta es amarilla?", "¿La fruta está mordida?", "¿La fruta es una banana?", "¿Hay algún gusano en la fruta?"],
+                correctAnswer: 1, // ¿La fruta está mordida?
+                correctSkill: "algoritmico",
+                exitTicket: "FORMULAR PREGUNTAS ESTRATÉGICAS"
+            },
+            {
+                id: 14,
+                title: "Laberinto",
+                description: "Partiendo de S, debemos movernos visitando los puntos mostrados. ¿Cuál es el número mínimo de puntos a visitar antes de salir del laberinto?",
+                image: "14.png",
+                answerOptions: ["5 puntos", "6 puntos", "7 puntos", "8 puntos"],
+                correctAnswer: 1, // 6 puntos
+                correctSkill: "algoritmico",
+                exitTicket: "ENCONTRAR RUTAS MÍNIMAS"
+            }
+        ];
+
+        // Desafíos extras con narrativa del Liceo Cuna de Fabini
+        const extraChallenges = [
+            {
+                id: 15,
+                title: "Organizando el Acto Patriótico",
+                description: "El Liceo Cuna de Fabini está organizando el acto del 25 de agosto. Hay 6 grupos con diferentes habilidades. ¿Cómo distribuirías las tareas para que todo esté listo a tiempo?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Grupos y habilidades disponibles:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">Grupo 1<br>🎵 Música</div>
+                            <div class="visual-item">Grupo 2<br>🎭 Teatro</div>
+                            <div class="visual-item">Grupo 3<br>🎨 Decoración</div>
+                            <div class="visual-item">Grupo 4<br>📝 Discurso</div>
+                            <div class="visual-item">Grupo 5<br>🍽️ Logística</div>
+                            <div class="visual-item">Grupo 6<br>📢 Coordinación</div>
+                        </div>
+                        <p>Tareas a asignar: Banda musical, Obra teatral, Decoración del salón, Discurso principal, Organización de refrigerios, Coordinación general</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Asignar por orden de llegada", 
+                    "Según habilidades específicas de cada grupo", 
+                    "Todos los grupos hacen todas las tareas", 
+                    "Sorteo aleatorio de tareas"
+                ],
+                correctAnswer: 1, // Según habilidades específicas
+                correctSkill: "descomposicion",
+                points: 5
+            },
+            {
+                id: 16,
+                title: "Ruta del Transporte Escolar",
+                description: "El transporte escolar de Solís de Mataojo debe recoger estudiantes en 5 paradas diferentes y llevarlos al Liceo. ¿Cuál es la ruta más eficiente para minimizar el tiempo de recorrido?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Mapa de Solís de Mataojo:</h4>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; background: #f8f8f8; padding: 15px; border-radius: 5px;">
+                            <div style="grid-column: 1;">🏠 Casa María</div>
+                            <div style="grid-column: 2;">🛣️ 5min</div>
+                            <div style="grid-column: 3;">⛲ Plaza</div>
+                            <div style="grid-column: 1;">🛣️ 8min</div>
+                            <div style="grid-column: 2;">🏫 Escuela 93</div>
+                            <div style="grid-column: 3;">🛣️ 6min</div>
+                            <div style="grid-column: 2;">🛣️ 10min</div>
+                            <div style="grid-column: 3;">🎓 Liceo</div>
+                            <div style="grid-column: 1;">🛣️ 7min</div>
+                            <div style="grid-column: 2;">🛣️ 4min</div>
+                        </div>
+                        <p>Paradas: Casa de María, Plaza Solís, Escuela 93, Casa de Juan, Casa de Ana</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Casa María → Plaza → Escuela → Casa Juan → Casa Ana → Liceo", 
+                    "Plaza → Casa María → Escuela → Casa Ana → Casa Juan → Liceo", 
+                    "Escuela → Plaza → Casa María → Casa Juan → Casa Ana → Liceo", 
+                    "Casa Ana → Casa Juan → Escuela → Plaza → Casa María → Liceo"
+                ],
+                correctAnswer: 0, // Ruta más corta
+                correctSkill: "algoritmico",
+                points: 10
+            },
+            {
+                id: 17,
+                title: "Patrón de Asistencia",
+                description: "Analizando los registros de asistencia del Liceo, notamos un patrón: Los lunes hay 95% de asistencia, martes 92%, miércoles 90%, jueves 88%, viernes 85%. ¿Qué predicción puedes hacer?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Registro de Asistencia Semanal:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">Lunes<br>95%</div>
+                            <div class="visual-item">Martes<br>92%</div>
+                            <div class="visual-item">Miércoles<br>90%</div>
+                            <div class="visual-item">Jueves<br>88%</div>
+                            <div class="visual-item">Viernes<br>85%</div>
+                        </div>
+                        <p>Patrón observado: La asistencia disminuye progresivamente durante la semana</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "La asistencia aumenta los fines de semana", 
+                    "La asistencia disminuye progresivamente durante la semana", 
+                    "No hay patrón discernible", 
+                    "La asistencia es aleatoria"
+                ],
+                correctAnswer: 1, // Disminuye progresivamente
+                correctSkill: "generalizacion",
+                points: 5
+            },
+            {
+                id: 18,
+                title: "Optimización de Espacio en Biblioteca",
+                description: "La biblioteca del Liceo tiene espacio limitado. Hay 4 estantes y 6 categorías de libros. ¿Cuál es la mejor forma de organizarlos?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Recursos de la Biblioteca:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">Literatura<br>120 libros</div>
+                            <div class="visual-item">Ciencias<br>80 libros</div>
+                            <div class="visual-item">Matemáticas<br>60 libros</div>
+                            <div class="visual-item">Historia<br>70 libros</div>
+                            <div class="visual-item">Geografía<br>50 libros</div>
+                            <div class="visual-item">Arte<br>40 libros</div>
+                        </div>
+                        <p>Espacio disponible: 4 estantes con capacidad para 100 libros cada uno</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Unir categorías relacionadas en cada estante", 
+                    "Distribuir proporcionalmente según cantidad", 
+                    "Dejar un estante vacío para expansión", 
+                    "Organizar alfabéticamente sin importar categoría"
+                ],
+                correctAnswer: 0, // Unir categorías relacionadas
+                correctSkill: "evaluacion",
+                points: 10
+            },
+            {
+                id: 19,
+                title: "Secuencia de Eventos del Liceo",
+                description: "El Liceo tiene estos eventos programados: Torneo de fútbol (2 hrs), Feria de ciencias (3 hrs), Obra de teatro (1.5 hrs). ¿Cuál es el orden más eficiente si solo tenemos 4 horas disponibles?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Eventos Programados:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">⚽ Fútbol<br>2 horas</div>
+                            <div class="visual-item">🔬 Ciencias<br>3 horas</div>
+                            <div class="visual-item">🎭 Teatro<br>1.5 horas</div>
+                        </div>
+                        <p>Tiempo disponible: 4 horas continuas. Algunos eventos pueden traslaparse si usan espacios diferentes.</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Fútbol + Ciencias (traslapados)", 
+                    "Teatro + Fútbol (secuencial)", 
+                    "Solo Ciencias (más importante)", 
+                    "Ciencias + Teatro (traslapados)"
+                ],
+                correctAnswer: 3, // Ciencias + Teatro traslapados
+                correctSkill: "evaluacion",
+                points: 10
+            },
+            {
+                id: 20,
+                title: "Patrón de Calificaciones",
+                description: "Las calificaciones de matemáticas del primer trimestre fueron: 7, 8, 6, 9, 7, 8, 5, 9, 8. ¿Qué patrón observas y qué predicción harías para el próximo trimestre?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Calificaciones de Matemáticas:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">Est 1<br>7</div>
+                            <div class="visual-item">Est 2<br>8</div>
+                            <div class="visual-item">Est 3<br>6</div>
+                            <div class="visual-item">Est 4<br>9</div>
+                            <div class="visual-item">Est 5<br>7</div>
+                            <div class="visual-item">Est 6<br>8</div>
+                            <div class="visual-item">Est 7<br>5</div>
+                            <div class="visual-item">Est 8<br>9</div>
+                            <div class="visual-item">Est 9<br>8</div>
+                        </div>
+                        <p>Promedio: 7.4. Moda: 8. Mediana: 8.</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "La mayoría obtiene 8, probablemente se mantenga", 
+                    "Las calificaciones son aleatorias", 
+                    "Todos mejorarán en el próximo trimestre", 
+                    "Empeorarán consistentemente"
+                ],
+                correctAnswer: 0, // Mayoría obtiene 8
+                correctSkill: "generalizacion",
+                points: 5
+            },
+            {
+                id: 21,
+                title: "Organización de la Kermés",
+                description: "Para la kermés del Liceo, tenemos 8 stands y 10 actividades propuestas. ¿Cómo decidir cuáles incluir y cómo organizarlas?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Actividades Propuestas:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">Tiro al blanco<br>Alta popularidad</div>
+                            <div class="visual-item">Puesto de comida<br>Alta ganancia</div>
+                            <div class="visual-item">Juego de mesa<br>Bajo costo</div>
+                            <div class="visual-item">Baile<br>Mediana participación</div>
+                            <div class="visual-item">Cuenta cuentos<br>Baja ganancia</div>
+                            <div class="visual-item">Tómbola<br>Alta ganancia</div>
+                            <div class="visual-item">Pintura<br>Mediano costo</div>
+                            <div class="visual-item">Carrera<br>Alta participación</div>
+                            <div class="visual-item">Adivinanzas<br>Bajo costo</div>
+                            <div class="visual-item">Música<br>Mediana ganancia</div>
+                        </div>
+                        <p>Criterios: Popularidad, Ganancia potencial, Costo, Participación esperada</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Seleccionar basado en múltiples criterios", 
+                    "Elegir las más populares únicamente", 
+                    "Sorteo aleatorio", 
+                    "Incluir todas aunque compartan stands"
+                ],
+                correctAnswer: 0, // Múltiples criterios
+                correctSkill: "evaluacion",
+                points: 10
+            },
+            {
+                id: 22,
+                title: "Abstracción de Problemas Matemáticos",
+                description: "Si el Liceo tiene 240 estudiantes y la relación hombres-mujeres es 3:2, ¿cuántos estudiantes de cada género hay?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Problema de Proporciones:</h4>
+                        <div style="background: #f8f8f8; padding: 15px; border-radius: 5px; text-align: center;">
+                            <p>Total estudiantes: 240</p>
+                            <p>Relación Hombres : Mujeres = 3 : 2</p>
+                            <p>¿Cuántos en cada grupo?</p>
+                        </div>
+                    </div>
+                `,
+                answerOptions: [
+                    "144 hombres, 96 mujeres", 
+                    "120 hombres, 120 mujeres", 
+                    "160 hombres, 80 mujeres", 
+                    "100 hombres, 140 mujeres"
+                ],
+                correctAnswer: 0, // 144 hombres, 96 mujeres
+                correctSkill: "abstraccion",
+                points: 5
+            },
+            {
+                id: 23,
+                title: "Descomposición de Tareas para la Feria",
+                description: "Para organizar la Feria de Ciencias, necesitamos dividir las tareas entre los grupos. ¿Cuál es la mejor forma de descomponer el proyecto?",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Proyecto: Feria de Ciencias</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">📋 Planificación</div>
+                            <div class="visual-item">🔬 Experimentos</div>
+                            <div class="visual-item">📊 Presentaciones</div>
+                            <div class="visual-item">🎪 Logística</div>
+                            <div class="visual-item">📣 Promoción</div>
+                            <div class="visual-item">🏆 Evaluación</div>
+                        </div>
+                        <p>Recursos: 6 grupos de estudiantes, 2 profesores supervisores, presupuesto limitado</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Dividir por fases del proyecto", 
+                    "Asignar todo a un grupo líder", 
+                    "Cada grupo hace un poco de todo", 
+                    "Contratar ayuda externa"
+                ],
+                correctAnswer: 0, // Dividir por fases
+                correctSkill: "descomposicion",
+                points: 5
+            },
+            {
+                id: 24,
+                title: "Algoritmo para Limpieza del Aula",
+                description: "¿Cuál es la secuencia más eficiente para limpiar el aula después de clases? Considera: barrer, ordenar mesas, limpiar pizarra, sacar basura, regar plantas.",
+                visual: `
+                    <div class="visual-container">
+                        <h4>Tareas de Limpieza:</h4>
+                        <div class="visual-grid">
+                            <div class="visual-item">🧹 Barrer<br>(primero)</div>
+                            <div class="visual-item">📦 Ordenar<br>(después de barrer)</div>
+                            <div class="visual-item">📝 Pizarra<br>(en cualquier momento)</div>
+                            <div class="visual-item">🗑️ Basura<br>(al final)</div>
+                            <div class="visual-item">🌿 Plantas<br>(después de ordenar)</div>
+                        </div>
+                        <p>Restricciones: No se puede ordenar sin antes barrer, la basura debe sacarse al final</p>
+                    </div>
+                `,
+                answerOptions: [
+                    "Barrer → Ordenar → Plantas → Pizarra → Basura", 
+                    "Pizarra → Barrer → Ordenar → Plantas → Basura", 
+                    "Ordenar → Barrer → Pizarra → Plantas → Basura", 
+                    "Plantas → Pizarra → Barrer → Ordenar → Basura"
+                ],
+                correctAnswer: 1, // Pizarra primero no interfiere
+                correctSkill: "algoritmico",
+                points: 5
+            }
+        ];
+
+        // Habilidades de pensamiento computacional
+        const skills = [
+            { id: "abstraccion", name: "Abstracción" },
+            { id: "algoritmico", name: "Pensamiento Algorítmico" },
+            { id: "descomposicion", name: "Descomposición" },
+            { id: "evaluacion", name: "Evaluación" },
+            { id: "generalizacion", name: "Generalización" }
+        ];
+
+        // Estado de la aplicación
+        let userAnswers = {};
+        let userSkills = {};
+        let extraUserAnswers = {};
+        let extraUserSkills = {};
+        let completedChallenges = 0;
+        let completedExtraChallenges = 0;
+        let totalScore = 0;
+        let extraScore = 0;
+        let startTime;
+        let timerInterval;
+        let timeRemaining = 35 * 60; // 35 minutos en segundos
+        let isTimerRunning = true;
+        let evaluationData = {};
+        let selfEvaluationData = {};
+        let obtainedTickets = [];
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            loadChallenges();
+            loadExtraChallenges();
+            setupEventListeners();
+            updateProgress();
+            startTimer();
+            updateTicketsDisplay();
+        });
+
+        // Cargar los desafíos principales en la página
+        function loadChallenges() {
+            const container = document.getElementById('challenges-container');
+            
+            challenges.forEach(challenge => {
+                const challengeCard = document.createElement('div');
+                challengeCard.className = 'challenge-card';
+                challengeCard.id = `challenge-${challenge.id}`;
+                
+                challengeCard.innerHTML = `
+                    <div class="challenge-header">
+                        <div class="challenge-number">${challenge.id}</div>
+                        <div class="challenge-title">${challenge.title}</div>
+                    </div>
+                    
+                    <div class="challenge-description">
+                        ${challenge.description}
+                    </div>
+                    
+                    <div class="challenge-image-container">
+                        <img src="${challenge.image}" alt="${challenge.title}" class="challenge-image">
+                    </div>
+                    
+                    <div class="skills-selection">
+                        <h4>¿Qué habilidad de pensamiento computacional crees que se usa en este desafío?</h4>
+                        <div class="skill-options" id="skills-${challenge.id}">
+                            ${skills.map(skill => `
+                                <div class="skill-option" data-skill="${skill.id}">${skill.name}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="answer-section">
+                        <h4>Selecciona tu respuesta:</h4>
+                        <div class="answer-options" id="answers-${challenge.id}">
+                            ${challenge.answerOptions.map((option, index) => `
+                                <div class="answer-option" data-answer="${index}">${option}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="feedback" id="feedback-${challenge.id}"></div>
+                    <div class="exit-ticket" id="exit-ticket-${challenge.id}">Ticket de salida: ${challenge.exitTicket}</div>
+                `;
+                
+                container.appendChild(challengeCard);
+                
+                // Configurar eventos para este desafío
+                setupChallengeEvents(challenge.id, false);
+            });
+        }
+
+        // Cargar los desafíos extras en la página
+        function loadExtraChallenges() {
+            const container = document.getElementById('extra-challenges-container');
+            
+            extraChallenges.forEach(challenge => {
+                const challengeCard = document.createElement('div');
+                challengeCard.className = 'challenge-card';
+                challengeCard.id = `extra-challenge-${challenge.id}`;
+                
+                challengeCard.innerHTML = `
+                    <div class="challenge-header">
+                        <div class="challenge-number">${challenge.id}</div>
+                        <div class="challenge-title">${challenge.title} (+${challenge.points} pts)</div>
+                    </div>
+                    
+                    <div class="challenge-description">
+                        ${challenge.description}
+                    </div>
+                    
+                    ${challenge.visual}
+                    
+                    <div class="skills-selection">
+                        <h4>¿Qué habilidad de pensamiento computacional crees que se usa en este desafío?</h4>
+                        <div class="skill-options" id="extra-skills-${challenge.id}">
+                            ${skills.map(skill => `
+                                <div class="skill-option" data-skill="${skill.id}">${skill.name}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="answer-section">
+                        <h4>Selecciona tu respuesta:</h4>
+                        <div class="answer-options" id="extra-answers-${challenge.id}">
+                            ${challenge.answerOptions.map((option, index) => `
+                                <div class="answer-option" data-answer="${index}">${option}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="feedback" id="extra-feedback-${challenge.id}"></div>
+                `;
+                
+                container.appendChild(challengeCard);
+                
+                // Configurar eventos para este desafío extra
+                setupChallengeEvents(challenge.id, true);
+            });
+        }
+
+        // Configurar eventos para un desafío específico
+        function setupChallengeEvents(challengeId, isExtra) {
+            const prefix = isExtra ? "extra-" : "";
+            const skillOptions = document.querySelectorAll(`#${prefix}skills-${challengeId} .skill-option`);
+            const answerOptions = document.querySelectorAll(`#${prefix}answers-${challengeId} .answer-option`);
+            
+            // Eventos para selección de habilidades
+            skillOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Deseleccionar otras opciones
+                    skillOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Seleccionar esta opción
+                    this.classList.add('selected');
+                    
+                    // Guardar selección
+                    if (isExtra) {
+                        extraUserSkills[challengeId] = this.dataset.skill;
+                    } else {
+                        userSkills[challengeId] = this.dataset.skill;
+                    }
+                    
+                    // Verificar si el desafío está completo
+                    checkChallengeCompletion(challengeId, isExtra);
+                });
+            });
+            
+            // Eventos para selección de respuestas
+            answerOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Deseleccionar otras opciones
+                    answerOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Seleccionar esta opción
+                    this.classList.add('selected');
+                    
+                    // Guardar selección
+                    const answerIndex = parseInt(this.dataset.answer);
+                    if (isExtra) {
+                        extraUserAnswers[challengeId] = answerIndex;
+                    } else {
+                        userAnswers[challengeId] = answerIndex;
+                    }
+                    
+                    // Verificar respuesta
+                    checkAnswer(challengeId, isExtra, answerIndex);
+                    
+                    // Verificar si el desafío está completo
+                    checkChallengeCompletion(challengeId, isExtra);
+                });
+            });
+        }
+
+        // Verificar la respuesta de un desafío
+        function checkAnswer(challengeId, isExtra, answerIndex) {
+            const challenge = isExtra ? 
+                extraChallenges.find(c => c.id === challengeId) : 
+                challenges.find(c => c.id === challengeId);
+                
+            const prefix = isExtra ? "extra-" : "";
+            const feedback = document.getElementById(`${prefix}feedback-${challengeId}`);
+            
+            if (answerIndex === challenge.correctAnswer) {
+                feedback.textContent = "¡Correcto! Has acertado la respuesta.";
+                feedback.className = "feedback correct";
+                
+                // Sumar puntos si es un desafío extra
+                if (isExtra) {
+                    extraScore += challenge.points;
+                } else {
+                    totalScore += 10; // 10 puntos por desafío principal
+                    
+                    // Agregar ticket de salida si es un desafío principal
+                    if (!obtainedTickets.includes(challenge.exitTicket)) {
+                        obtainedTickets.push(challenge.exitTicket);
+                        updateTicketsDisplay();
+                    }
+                }
+            } else {
+                feedback.textContent = "Incorrecto. Intenta nuevamente o revisa tu razonamiento.";
+                feedback.className = "feedback incorrect";
+            }
+            
+            feedback.style.display = 'block';
+            
+            // Mostrar ticket de salida si es un desafío principal correcto
+            if (!isExtra && answerIndex === challenge.correctAnswer) {
+                document.getElementById(`exit-ticket-${challengeId}`).style.display = 'block';
+            }
+        }
+
+        // Verificar si un desafío está completo (tiene habilidad y respuesta seleccionadas)
+        function checkChallengeCompletion(challengeId, isExtra) {
+            const answers = isExtra ? extraUserAnswers : userAnswers;
+            const skills = isExtra ? extraUserSkills : userSkills;
+            
+            if (answers[challengeId] !== undefined && skills[challengeId] !== undefined) {
+                if (isExtra) {
+                    completedExtraChallenges = Object.keys(extraUserAnswers).length;
+                    updateExtraProgress();
+                } else {
+                    completedChallenges = Object.keys(userAnswers).length;
+                    updateProgress();
+                }
+                
+                updatePerformanceReport();
+                updateMedals();
+                updateRubricScore();
+            }
+        }
+
+        // Actualizar la barra de progreso principal
+        function updateProgress() {
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            
+            const progressPercentage = (completedChallenges / challenges.length) * 100;
+            progressFill.style.width = `${progressPercentage}%`;
+            progressText.textContent = `${completedChallenges}/${challenges.length} desafíos completados`;
+        }
+
+        // Actualizar la barra de progreso de desafíos extras
+        function updateExtraProgress() {
+            const progressFill = document.getElementById('extra-progress-fill');
+            const progressText = document.getElementById('extra-progress-text');
+            
+            const progressPercentage = (completedExtraChallenges / extraChallenges.length) * 100;
+            progressFill.style.width = `${progressPercentage}%`;
+            progressText.textContent = `${completedExtraChallenges}/${extraChallenges.length} desafíos extras completados`;
+        }
+
+        // Actualizar la visualización de tickets de salida
+        function updateTicketsDisplay() {
+            const container = document.getElementById('tickets-container');
+            
+            if (obtainedTickets.length === 0) {
+                container.innerHTML = `
+                    <div class="ticket-card">
+                        <h4>No hay tickets aún</h4>
+                        <p>Completa desafíos para obtener tickets de salida</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = obtainedTickets.map(ticket => `
+                    <div class="ticket-card">
+                        <h4>Ticket de Salida</h4>
+                        <p>${ticket}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Actualizar la puntuación de la rúbrica
+        function updateRubricScore() {
+            const totalChallengesCompleted = completedChallenges + completedExtraChallenges;
+            const totalPossibleChallenges = challenges.length + extraChallenges.length;
+            
+            // Calcular puntuación basada en el desempeño
+            let rubricScore = 0;
+            
+            // Criterio 1: Resolución de Problemas (máx 4 pts)
+            const completionRate = totalChallengesCompleted / totalPossibleChallenges;
+            if (completionRate >= 0.9) rubricScore += 4;
+            else if (completionRate >= 0.7) rubricScore += 3;
+            else if (completionRate >= 0.5) rubricScore += 2;
+            else rubricScore += 1;
+            
+            // Criterio 2: Pensamiento Computacional (máx 4 pts)
+            const correctSkillsRate = calculateCorrectSkillsRate();
+            if (correctSkillsRate >= 0.9) rubricScore += 4;
+            else if (correctSkillsRate >= 0.7) rubricScore += 3;
+            else if (correctSkillsRate >= 0.5) rubricScore += 2;
+            else rubricScore += 1;
+            
+            // Criterio 3: Trabajo en Equipo (estimado basado en tiempo y eficiencia)
+            rubricScore += 3; // Valor por defecto, se ajustaría con datos reales
+            
+            // Criterio 4: Manejo del Tiempo (máx 4 pts)
+            const timeEfficiency = calculateTimeEfficiency();
+            if (timeEfficiency >= 0.9) rubricScore += 4;
+            else if (timeEfficiency >= 0.7) rubricScore += 3;
+            else if (timeEfficiency >= 0.5) rubricScore += 2;
+            else rubricScore += 1;
+            
+            // Criterio 5: Reflexión (estimado, se completaría con los formularios)
+            rubricScore += 3; // Valor por defecto
+            
+            // Actualizar interfaz
+            document.getElementById('rubric-total').textContent = rubricScore;
+            
+            // Calificar según puntuación
+            let grade = '';
+            if (rubricScore >= 18) grade = 'Excelente';
+            else if (rubricScore >= 15) grade = 'Bueno';
+            else if (rubricScore >= 12) grade = 'Regular';
+            else grade = 'Necesita Mejora';
+            
+            document.getElementById('rubric-grade').textContent = grade;
+        }
+
+        // Calcular tasa de habilidades correctamente identificadas
+        function calculateCorrectSkillsRate() {
+            let correctCount = 0;
+            let totalCount = 0;
+            
+            // Contar para desafíos principales
+            challenges.forEach(challenge => {
+                if (userSkills[challenge.id] !== undefined) {
+                    totalCount++;
+                    if (userSkills[challenge.id] === challenge.correctSkill) {
+                        correctCount++;
+                    }
+                }
+            });
+            
+            // Contar para desafíos extras
+            extraChallenges.forEach(challenge => {
+                if (extraUserSkills[challenge.id] !== undefined) {
+                    totalCount++;
+                    if (extraUserSkills[challenge.id] === challenge.correctSkill) {
+                        correctCount++;
+                    }
+                }
+            });
+            
+            return totalCount > 0 ? correctCount / totalCount : 0;
+        }
+
+        // Calcular eficiencia de tiempo
+        function calculateTimeEfficiency() {
+            const timeUsed = 35 * 60 - timeRemaining;
+            const idealTime = 25 * 60; // 25 minutos como tiempo ideal
+            
+            if (timeUsed <= idealTime) return 1.0;
+            if (timeUsed >= 35 * 60) return 0.5;
+            
+            // Eficiencia lineal decreciente
+            return 1.0 - (timeUsed - idealTime) / (10 * 60);
+        }
+
+        // Iniciar el temporizador
+        function startTimer() {
+            startTime = new Date();
+            
+            timerInterval = setInterval(function() {
+                if (isTimerRunning) {
+                    timeRemaining--;
+                    
+                    if (timeRemaining <= 0) {
+                        clearInterval(timerInterval);
+                        timeRemaining = 0;
+                        isTimerRunning = false;
+                        document.getElementById('timer-message').style.display = 'block';
+                    }
+                    
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        // Actualizar la visualización del temporizador
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+            if (timeRemaining <= 300) { // 5 minutos restantes
+                document.getElementById('timer').classList.add('timer-warning');
+            }
+        }
+
+        // Configurar eventos generales
+        function setupEventListeners() {
+            // Evento para las pestañas
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Actualizar pestaña activa
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Mostrar contenido correspondiente
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Evento para el formulario de evaluación
+            const evaluationForm = document.getElementById('evaluation-form');
+            evaluationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Recopilar datos del formulario
+                evaluationData = {
+                    name: document.getElementById('student-name').value,
+                    team: document.getElementById('student-team').value,
+                    grade: document.getElementById('student-grade').value,
+                    difficulty: document.getElementById('difficulty-rating').value,
+                    enjoyment: document.getElementById('enjoyment-rating').value,
+                    skills: document.getElementById('skills-improved').value,
+                    challenges: document.getElementById('challenges-faced').value,
+                    feedback: document.getElementById('teacher-feedback').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Descargar como archivo TXT
+                downloadEvaluationTXT(evaluationData, 'evaluacion_conceptos');
+                
+                // Simular envío a Google Sheets
+                simulateGoogleSheetsSubmit(evaluationData, 'evaluacion');
+                
+                alert('¡Evaluación enviada con éxito! Se ha descargado un archivo TXT con tus respuestas.');
+                evaluationForm.reset();
+            });
+            
+            // Evento para el formulario de autoevaluación
+            const selfEvaluationForm = document.getElementById('self-evaluation-form');
+            selfEvaluationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Recopilar datos del formulario
+                selfEvaluationData = {
+                    teamPerformance: document.getElementById('team-performance').value,
+                    myContribution: document.getElementById('my-contribution').value,
+                    learnedContent: document.getElementById('learned-content').value,
+                    difficultConcepts: document.getElementById('difficult-concepts').value,
+                    improvementAreas: document.getElementById('improvement-areas').value,
+                    enjoyedMost: document.getElementById('enjoyed-most').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Descargar como archivo TXT
+                downloadEvaluationTXT(selfEvaluationData, 'autoevaluacion_desempeno');
+                
+                // Simular envío a Google Sheets
+                simulateGoogleSheetsSubmit(selfEvaluationData, 'autoevaluacion');
+                
+                alert('¡Autoevaluación enviada con éxito! Se ha descargado un archivo TXT con tus respuestas.');
+                selfEvaluationForm.reset();
+            });
+        }
+
+        // Descargar evaluación como archivo TXT
+        function downloadEvaluationTXT(data, filename) {
+            let content = '';
+            
+            if (filename === 'evaluacion_conceptos') {
+                content = `EVALUACIÓN DE CONCEPTOS - LICEO CUNA DE FABINI\n`;
+                content += `==================================================\n\n`;
+                content += `Nombre: ${data.name}\n`;
+                content += `Equipo: ${data.team}\n`;
+                content += `Grado: ${data.grade}\n`;
+                content += `Dificultad percibida: ${getDifficultyText(data.difficulty)}\n`;
+                content += `Disfrute de la actividad: ${getEnjoymentText(data.enjoyment)}\n\n`;
+                content += `Habilidades desarrolladas:\n${data.skills}\n\n`;
+                content += `Desafíos más difíciles:\n${data.challenges}\n\n`;
+                content += `Comentarios para el profesor:\n${data.feedback}\n\n`;
+                content += `Fecha: ${new Date(data.timestamp).toLocaleString()}\n`;
+            } else {
+                content = `AUTOEVALUACIÓN DE DESEMPEÑO - LICEO CUNA DE FABINI\n`;
+                content += `======================================================\n\n`;
+                content += `Desempeño del equipo: ${getTeamPerformanceText(data.teamPerformance)}\n\n`;
+                content += `Mi contribución:\n${data.myContribution}\n\n`;
+                content += `Contenido aprendido:\n${data.learnedContent}\n\n`;
+                content += `Conceptos difíciles:\n${data.difficultConcepts}\n\n`;
+                content += `Áreas de mejora:\n${data.improvementAreas}\n\n`;
+                content += `Lo más disfrutado:\n${data.enjoyedMost}\n\n`;
+                content += `Fecha: ${new Date(data.timestamp).toLocaleString()}\n`;
+            }
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${filename}_${data.name || 'estudiante'}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Simular envío a Google Sheets
+        function simulateGoogleSheetsSubmit(data, type) {
+            // En una implementación real, aquí se enviarían los datos a Google Sheets
+            // usando la API de Google Sheets o un servicio intermedio
+            
+            console.log(`Enviando datos a Google Sheets (${type}):`, data);
+            
+            // Simulación de URL de Google Sheets (reemplazar con la real)
+            const sheetsURL = "https://docs.google.com/spreadsheets/d/1ABC123def456GHI789jkl/";
+            console.log(`URL de Google Sheets: ${sheetsURL}`);
+            
+            // Aquí iría el código real para enviar datos a Google Sheets
+            // Por ejemplo, usando fetch() con la API de Google Sheets
+        }
+
+        // Funciones auxiliares para texto
+        function getDifficultyText(value) {
+            const options = {
+                "1": "Muy fáciles",
+                "2": "Fáciles",
+                "3": "Moderados",
+                "4": "Difíciles",
+                "5": "Muy difíciles"
+            };
+            return options[value] || "No especificado";
+        }
+
+        function getEnjoymentText(value) {
+            const options = {
+                "1": "No me gustaron",
+                "2": "Poco disfrutables",
+                "3": "Neutral",
+                "4": "Disfrutables",
+                "5": "Muy disfrutables"
+            };
+            return options[value] || "No especificado";
+        }
+
+        function getTeamPerformanceText(value) {
+            const options = {
+                "1": "Excelente - Trabajamos muy bien juntos",
+                "2": "Bueno - Hubo buena colaboración",
+                "3": "Regular - Podríamos haber trabajado mejor",
+                "4": "Deficiente - Fue difícil trabajar en equipo"
+            };
+            return options[value] || "No especificado";
+        }
+
+        // Actualizar el informe de desempeño
+        function updatePerformanceReport() {
+            // Calcular estadísticas
+            const totalChallengesCompleted = completedChallenges + completedExtraChallenges;
+            const totalPossibleScore = (challenges.length * 10) + 70; // 10 pts por desafío principal + 70 pts extras máximos
+            const currentTotalScore = totalScore + extraScore;
+            
+            // Tiempo utilizado
+            const timeUsedInSeconds = 35 * 60 - timeRemaining;
+            const minutesUsed = Math.floor(timeUsedInSeconds / 60);
+            const secondsUsed = timeUsedInSeconds % 60;
+            
+            // Eficiencia
+            const efficiency = totalChallengesCompleted > 0 ? 
+                Math.round((currentTotalScore / totalPossibleScore) * 100) : 0;
+            
+            // Actualizar elementos de la interfaz
+            document.getElementById('completed-challenges').textContent = 
+                `${totalChallengesCompleted}/${challenges.length + extraChallenges.length}`;
+            document.getElementById('total-score').textContent = `${currentTotalScore} puntos`;
+            document.getElementById('time-used').textContent = 
+                `${minutesUsed.toString().padStart(2, '0')}:${secondsUsed.toString().padStart(2, '0')}`;
+            document.getElementById('efficiency').textContent = `${efficiency}%`;
+            
+            // Calcular habilidades desarrolladas
+            updateSkillsReport();
+        }
+
+        // Actualizar el reporte de habilidades
+        function updateSkillsReport() {
+            // Contar habilidades correctamente identificadas en desafíos principales
+            let abstractionCount = 0, algorithmicCount = 0, decompositionCount = 0, 
+                evaluationCount = 0, generalizationCount = 0;
+            let abstractionTotal = 0, algorithmicTotal = 0, decompositionTotal = 0, 
+                evaluationTotal = 0, generalizationTotal = 0;
+            
+            // Contar para desafíos principales
+            challenges.forEach(challenge => {
+                if (userSkills[challenge.id] === challenge.correctSkill) {
+                    switch(challenge.correctSkill) {
+                        case 'abstraccion': abstractionCount++; break;
+                        case 'algoritmico': algorithmicCount++; break;
+                        case 'descomposicion': decompositionCount++; break;
+                        case 'evaluacion': evaluationCount++; break;
+                        case 'generalizacion': generalizationCount++; break;
+                    }
+                }
+                
+                // Totales por habilidad
+                switch(challenge.correctSkill) {
+                    case 'abstraccion': abstractionTotal++; break;
+                    case 'algoritmico': algorithmicTotal++; break;
+                    case 'descomposicion': decompositionTotal++; break;
+                    case 'evaluacion': evaluationTotal++; break;
+                    case 'generalizacion': generalizationTotal++; break;
+                }
+            });
+            
+            // Calcular porcentajes
+            const abstractionPercentage = abstractionTotal > 0 ? 
+                Math.round((abstractionCount / abstractionTotal) * 100) : 0;
+            const algorithmicPercentage = algorithmicTotal > 0 ? 
+                Math.round((algorithmicCount / algorithmicTotal) * 100) : 0;
+            const decompositionPercentage = decompositionTotal > 0 ? 
+                Math.round((decompositionCount / decompositionTotal) * 100) : 0;
+            const evaluationPercentage = evaluationTotal > 0 ? 
+                Math.round((evaluationCount / evaluationTotal) * 100) : 0;
+            const generalizationPercentage = generalizationTotal > 0 ? 
+                Math.round((generalizationCount / generalizationTotal) * 100) : 0;
+            
+            // Actualizar interfaz
+            document.getElementById('abstraction-score').textContent = `${abstractionPercentage}%`;
+            document.getElementById('algorithmic-score').textContent = `${algorithmicPercentage}%`;
+            document.getElementById('decomposition-score').textContent = `${decompositionPercentage}%`;
+            document.getElementById('evaluation-score').textContent = `${evaluationPercentage}%`;
+            document.getElementById('generalization-score').textContent = `${generalizationPercentage}%`;
+        }
+
+        // Actualizar medallas obtenidas
+        function updateMedals() {
+            // Medalla de bronce por completar 5 desafíos principales
+            if (completedChallenges >= 5) {
+                document.getElementById('medal-bronze').classList.add('earned');
+            }
+            
+            // Medalla de plata por completar 10 desafíos principales
+            if (completedChallenges >= 10) {
+                document.getElementById('medal-silver').classList.add('earned');
+            }
+            
+            // Medalla de oro por completar todos los desafíos principales
+            if (completedChallenges >= challenges.length) {
+                document.getElementById('medal-gold').classList.add('earned');
+            }
+            
+            // Medalla de platino por completar desafíos extras
+            if (completedExtraChallenges > 0) {
+                document.getElementById('medal-platinum').classList.add('earned');
+            }
+        }
+    </script>
+</body>
+</html>
